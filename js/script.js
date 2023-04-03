@@ -53,12 +53,12 @@ function addRSStoDOM(data) {
 
 var xhr = new XMLHttpRequest();
 xhr.onload = function() {
-  if (xhr.status >=200 && xhr.status <300){
+  if (xhr.status >=200 && xhr.status < 300){
     json = JSON.parse(xhr.responseText)
     console.log(json)
     console.log("Success!")
     addRSStoDOM(json)
-  } else {
+  }else{
     console.log("The request failed")
     content.innerHTML = "The request failed, lease check your RSS url"
   }

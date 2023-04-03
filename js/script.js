@@ -8,6 +8,7 @@
 // Each has has a title, link and description fields.  The following
 // function creates the corresponding HTML5 elements and inserts
 // them into the DOM tree.
+
 function addRSStoDOM(data) {
   // Create the 'outer' container to hold everything
   let itemsContainer = document.createElement('DIV');
@@ -48,6 +49,15 @@ function addRSStoDOM(data) {
   // lets add them to the main DOM.
   content.appendChild(titleElement);
   content.appendChild(itemsContainer);
+}
+
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+  if (xhr.status >=200 && xhr.status <300){
+    console.log("Success!")
+  } else {
+    console.log("The request failed")
+  }
 }
 
 // The following gets the ADD RSS button to work.  This is a very similar

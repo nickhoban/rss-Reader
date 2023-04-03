@@ -58,8 +58,11 @@ xhr.onload = function() {
     console.log(json)
   } else {
     console.log("The request failed")
+    content.innerHTML = "The request failed, lease check your RSS url"
   }
 }
+
+var content = document.getElementsByTagName('main')[0]
 
 // The following gets the ADD RSS button to work.  This is a very similar
 // process that we did in the ToDo application.  Find the elements in

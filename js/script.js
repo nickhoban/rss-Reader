@@ -1,13 +1,3 @@
-// The following JavaScript is 'part' of today's lessons.  The concepts below
-// have already either been implements in previous examples, or are a different
-// way to do something we have already discussed.  The JavaScript is provide
-// for self-study and review.
-//
-// Last time we use a 'template' this time we will build the DOM fragment
-// and insert into the DOM tree.  RSS feeds follow a similar structure
-// Each has has a title, link and description fields.  The following
-// function creates the corresponding HTML5 elements and inserts
-// them into the DOM tree.
 
 function addRSStoDOM(data) {
   // Create the 'outer' container to hold everything
@@ -51,7 +41,10 @@ function addRSStoDOM(data) {
   content.appendChild(itemsContainer);
 }
 
+var content = document.getElementsByTagName('main')[0]
+
 var xhr = new XMLHttpRequest();
+
 xhr.onload = function() {
   if (xhr.status >=200 && xhr.status < 300){
     json = JSON.parse(xhr.responseText)
@@ -60,11 +53,10 @@ xhr.onload = function() {
     addRSStoDOM(json)
   }else{
     console.log("The request failed")
-    content.innerHTML = "The request failed, lease check your RSS url"
+    content.innerHTML = "The request failed, please check your RSS url"
   }
 }
 
-var content = document.getElementsByTagName('main')[0]
 
 // The following gets the ADD RSS button to work.  This is a very similar
 // process that we did in the ToDo application.  Find the elements in
